@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="holo_blue_dark">#ff0099cc</color>
+    <color name="transparent">#00000000</color>
+    <color name="holo_blue_light">#ff33b5e5</color>
+    <color name="black">#ff000000</color>
+    <color name="grey_dark">#ff454545</color>
+    <color name="black_translucence">#dd000000</color>
+    <color name="black_translucence2">#55000000</color>
+    <color name="white_translucence">#ddffffff</color>
+    <color name="white_translucence2">#99ffffff</color>
+    <color name="white">#ffffffff</color>
+    <color name="bg_default_color">#edffffff</color>
+    <color name="bg_default_color_pressed">#249EF6</color>
+    <color name="playing_bar_primary_text_color">#ff424242</color>
+    <color name="playing_bar_secondary_text_color">#ff7d7d7d</color>
+    <color name="theme_color_0_pressed">#99249ef6</color>
+    <color name="bg_pressed_color2">#38000000</color>
+
+</resources>
