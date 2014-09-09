@@ -120,6 +120,9 @@ public class MusicPlayEngineImpl extends AbstractMediaPlayEngine {
 		if (mPlayerEngineListener != null) {
 			mPlayerEngineListener.onTrackPrepareComplete(mMusicInfo);
 		}
+//		if(mOnCompletionListener!=null){
+//			mOnCompletionListener.onCompletion(mp);
+//		}
 		mMediaPlayer.start();
 
 		mPlayState = PlayState.MPS_PLAYING;

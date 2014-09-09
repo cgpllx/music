@@ -166,12 +166,6 @@ public class MusicService extends Service {
 			}
 			return playPosition;
 		}
-
 	}
-
-	@Override
-	public void onDestroy() {
-		super.onDestroy();
-		Log.e(TAG, "onDestroy");
-	}
+ 
 }

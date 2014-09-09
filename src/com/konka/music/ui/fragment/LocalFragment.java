@@ -24,6 +24,7 @@ import com.konka.music.loader.MusicRetrieveLoader;
 import com.konka.music.player.MusicPlayEngineImpl;
 import com.konka.music.pojo.MusicInfo;
 
+
 public class LocalFragment extends KBaseFragment implements OnItemClickListener, LoaderCallbacks<List<MusicInfo>> {
 	public static final int MUSIC_RETRIEVE_LOADER = 0;
 	public static final String TAG = LocalFragment.class.getSimpleName();
@@ -64,6 +65,7 @@ public class LocalFragment extends KBaseFragment implements OnItemClickListener,
 				try {
 					mIMusicControl.pause();
 				} catch (RemoteException e) {
+					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -74,19 +76,7 @@ public class LocalFragment extends KBaseFragment implements OnItemClickListener,
 				try {
 					mIMusicControl.next();
 				} catch (RemoteException e) {
-					e.printStackTrace();
-				}
-			}
-		});
-		getActivity().findViewById(R.id.allplay).setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				try {
-					if (mIMusicControl != null) {
-						mIMusicControl.refreshMusicList(localMusicInfos);
-						mIMusicControl.paly();
-					}
-				} catch (RemoteException e) {
+					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -126,19 +116,28 @@ public class LocalFragment extends KBaseFragment implements OnItemClickListener,
 		// musicInfo.setData(url);
 		// mMusicPlayEngineImpl.playMedia(musicInfo);
 		// mMusicPlayEngineImpl.releaseVisualizer();
-		
 		try {
 			if (mIMusicControl != null) {
-				mIMusicControl.setMusicInfo(mAdapter.getItem(position));
-				mIMusicControl.paly();
+				// ArrayList<MusicInfo> arrayList=new ArrayList<>();
+				// arrayList.add(mAdapter.getItem(position));
+				// arrayList.add(mAdapter.getItem(position-1));
+				// arrayList.add(mAdapter.getItem(position+1));
+				// arrayList.add(mAdapter.getItem(position+2));
+				// // mAdapter.getFilter().
+				mIMusicControl.refreshMusicList(localMusicInfos);
 			}
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
-
+		// mMusicPlayEngineImpl.playMedia(mAdapter.getItem(position));
+		try {
+			mIMusicControl.paly();
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 		Toast.makeText(getActivity(), TAG, Toast.LENGTH_LONG).show();
-
-		FragmentTransaction ft = getFragmentManager().beginTransaction();
+		
+		FragmentTransaction ft=getFragmentManager().beginTransaction();
 		ft.add(android.R.id.content, new MusicPlayFragment());
 		ft.addToBackStack(null);
 		ft.commitAllowingStateLoss();

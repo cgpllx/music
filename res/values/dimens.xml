@@ -864,5 +864,4 @@
     <dimen name="volumn_window_height">50.0dip</dimen>
     <dimen name="statusbar_btn_margin">0.0dip</dimen>
     <dimen name="common_dialog_top_line_height">5.0dip</dimen>
-
 </resources>
