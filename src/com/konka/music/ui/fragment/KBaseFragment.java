@@ -11,19 +11,18 @@ import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.konka.music.R;
 import com.konka.music.service.IMusicControl;
 import com.konka.music.service.MusicService;
 import com.kubeiwu.commontool.util.ViewUtility;
 
-public class KBaseFragment extends Fragment implements OnClickListener {
+public class KBaseFragment extends Fragment implements OnClickListener, OnSeekBarChangeListener {
 	public static final String TAG = KBaseFragment.class.getSimpleName();
 	public static final ViewHolder viewHolder = new ViewHolder();
 
@@ -41,7 +40,7 @@ public class KBaseFragment extends Fragment implements OnClickListener {
 		viewHolder.playing_bar_next = ViewUtility.findViewById(getActivity(), R.id.playing_bar_next);
 		viewHolder.playing_bar_next.setOnClickListener(this);
 		viewHolder.playing_bar_seeker = ViewUtility.findViewById(getActivity(), R.id.playing_bar_seeker);
-		viewHolder.playing_bar_seeker.setOnClickListener(this);
+		viewHolder.playing_bar_seeker.setOnSeekBarChangeListener(this);
 		viewHolder.playing_bar_song_name = ViewUtility.findViewById(getActivity(), R.id.playing_bar_song_name);
 
 	}
@@ -120,5 +119,21 @@ public class KBaseFragment extends Fragment implements OnClickListener {
 	private void resetViewState(boolean isPlaying, String title) throws RemoteException {
 		viewHolder.playing_bar_toggle.setImageResource(isPlaying ? R.drawable.ic_playing_bar_pause : R.drawable.ic_playing_bar_play);
 		viewHolder.playing_bar_song_name.setText(title);
+	}
+
+	@Override
+	public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+		Log.e(TAG, "progress =" + progress);
+		Log.e(TAG, "fromUser =" + fromUser);
+	}
+
+	@Override
+	public void onStartTrackingTouch(SeekBar seekBar) {
+
+	}
+
+	@Override
+	public void onStopTrackingTouch(SeekBar seekBar) {
+
 	}
 }

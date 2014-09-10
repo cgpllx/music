@@ -11,6 +11,7 @@ public class MainActivity extends FragmentActivity {
 	@Override
 	protected void onCreate(Bundle arg0) {
 		super.onCreate(arg0);
+		setContentView(R.layout.activity_main);
 		FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 		ft.replace(R.id.coutent, new LocalFragment());
 		ft.commitAllowingStateLoss();
